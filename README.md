@@ -2,13 +2,13 @@
 
 这是我写的一个Typora主题，基本上是由 `pie` 和 `ursine-polar` 修改而来，使用方法请参看Typora的帮助手册。
 
-![shadow-MD_CSS](https://github.com/Theigrams/My-Typora-Themes/blob/master/figure/MD_CSS.png)
+![shadow-MD_CSS](https://i.loli.net/2020/04/21/BrbJq6mpT58WHof.png)
 
 首先因为我个人偏爱 `TimesNew` 字体，所以文中的英文字体全换成了 `TimesNew` 字体，然后感觉字体有点小，就把正文换成了17号字体。
 
 其实主要修改的就是标题的样式，我写完4级标题的样式后，一直苦恼5级和6级标题的样式该怎么写，后来我想了一下，我一般用LaTeX也顶多是用到`\subsubsection`，也就是刚好4级，所以就基本上不需要考虑后面的情况了。可以看到我把4级标题设成了一个框，也就是希望把它作为最小的标题。
 
-![shadow-f14](https://github.com/Theigrams/My-Typora-Themes/blob/master/figure/f1.png)
+![shadow-f14](https://gitee.com//theigrams/FigureUpload/raw/master/https://gitee.com/theigrams/FigureUpload/f1.png)
 
 
 
@@ -54,13 +54,13 @@ h3 {
 然后是稍微修改了一下引用和行间代码，因为中文的`斜体`作用几乎为0，因此我把它改成了「显示红色」的效果，然后就是代码块的显示，稍微修改了一点点，就显得很清爽。
 
 
-![shadow-f2](https://github.com/Theigrams/My-Typora-Themes/blob/master/figure/f2.png)
+![shadow-f2](https://gitee.com//theigrams/FigureUpload/raw/master/https://gitee.com/theigrams/FigureUpload/f2.png)
 
 
 
 看到下面这个红红的 `列表` 了么？没错，就是我从 `ursine-polar` 偷过来的😆。
 
-![shadow-f3](https://github.com/Theigrams/My-Typora-Themes/blob/master/figure/f3.png)
+![shadow-f3](https://gitee.com//theigrams/FigureUpload/raw/master/https://gitee.com/theigrams/FigureUpload/f3.png)
 
 而图片的阴影效果是从`pie` 那偷来的，我只是稍微加强了一下阴影效果。
 
