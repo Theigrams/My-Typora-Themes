@@ -109,7 +109,7 @@ h3 {
 > 注意：在极少数情况下，会出现PDF导出失败的问题，等我吃完饭就来改这个bug
 
 导出PDF效果大致如下：
-![image-20201028191547058](http://pic.theigrams.cn/20201028191547.png?imageslim)
+![image-20201028191547058](http://pic.theigrams.cn/20201028191547.png)
 
 ---
 
