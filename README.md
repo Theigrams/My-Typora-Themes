@@ -1,5 +1,7 @@
 # My-Typora-Themes
 
+> 如果GitHub图片加载不出来，可以去知乎看 https://zhuanlan.zhihu.com/p/133863913.
+
 这是我写的一个Typora主题，基本上是由 `pie` 和 `ursine-polar` 修改而来，使用方法请参看Typora的帮助手册。
 
 ## 前言
