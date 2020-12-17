@@ -1,12 +1,4 @@
 @import 'zj/fonts.css';
-
-/* :root {
-    --side-bar-bg-color: #fff;
-    --control-text-color: #777;
-    --font-sans-serif: 'Ubuntu', 'Source Sans Pro', sans-serif !important;
-    --font-monospace: 'Fira Code', 'Roboto Mono', monospace !important;
-} */
-
 :root {
     --side-bar-bg-color: #fff;
     --control-text-color: #777;
@@ -47,7 +39,6 @@ html {
 }
 
 body {
-    /* font-size: 17px; */
     font-family: "Vollkorn", Palatino, Times;
     /* font-family: 'Source Han SerifCN', Georgia, Times, 'SimSun', serif!important; */
     color: var(--mid-13);

@@ -11,11 +11,11 @@ Typora可谓是我最喜欢的Markdown编辑器了，可惜其自带的样式实
 
 以下是实际笔记效果：
 
-![img](https://pic1.zhimg.com/80/v2-173163ac793fbcda62af0f6f3d895a08_1440w.jpg)
+![img](https://pic1.zhimg.com/v2-173163ac793fbcda62af0f6f3d895a08_r.jpg)
 
-![img](https://pic2.zhimg.com/80/v2-99f8f27984d0e1d1f1662a27cadbda41_1440w.jpg)
+![img](https://pic2.zhimg.com/v2-99f8f27984d0e1d1f1662a27cadbda41_r.jpg)
 
-![img](https://pic2.zhimg.com/80/v2-7459caa13776f9a83f138ead20031361_1440w.jpg)
+![img](https://pic2.zhimg.com/v2-7459caa13776f9a83f138ead20031361_r.jpg)
 
 ## 字体
 
@@ -27,7 +27,7 @@ html {
 }
 ```
 
-然后修改了一下字体（如果是Mac用户的话，可以把这一行注释掉，用自带的苹方字体就很好看）。
+然后修改了一下字体（如果是Mac用户的话，可以把下面第二行注释掉，因为自带的苹方字体就很好看）。
 
 ```text
 body {
@@ -43,7 +43,7 @@ body {
 
 我认为标题可以说是整个样式中最重要的一部分，因为正文基本上都差不多。
 
-![img](https://pic2.zhimg.com/80/v2-6172c76a27bde96e4c2342796352c921_1440w.jpg)
+![img](https://pic2.zhimg.com/v2-6172c76a27bde96e4c2342796352c921_r.jpg)
 
 一级标题一般对应一本书中的Chapter，故局中表示。一般来说一个md文档中最好只有一个一级标题，如果有内容包含多个章节的话，则应该拆成多个md文档。
 
@@ -57,7 +57,7 @@ body {
 
 ## 文本样式
 
-![img](https://pic2.zhimg.com/80/v2-3b263b633366f0dec168b44877c6880d_1440w.jpg)
+![img](https://pic2.zhimg.com/v2-3b263b633366f0dec168b44877c6880d_r.jpg)
 
 对于行内公式，为了醒目和易于查找修改，我特意调成了蓝色（导出时依然是黑色）。
 
@@ -71,7 +71,7 @@ body {
 
 ## 列表与表格
 
-![img](https://pic2.zhimg.com/80/v2-aef79f96d7a55254258f7f39970e2001_1440w.jpg)
+![img](https://pic2.zhimg.com/v2-aef79f96d7a55254258f7f39970e2001_r.jpg)
 
 把列表和表格都改成了符合主题的红色（不知道为什么，大部分笔记软件默认主题都是红色，例如Notion）。
 
@@ -85,26 +85,28 @@ body {
 
 但在阅读严肃正经的内容时，衬线字体更合适，因此我将导出PDF的字体改成了宋体+TimesNew，看起来更有感觉。
 
-![img](https://pic2.zhimg.com/80/v2-15e30641f95416a64934a53d41293df9_1440w.jpg)
+![img](https://pic2.zhimg.com/v2-15e30641f95416a64934a53d41293df9_r.jpg)
 
 
 ### 2020年10月27日更新
 
 - 微调了列表排版
+
 - 微调表格颜色
+
 - 修改二级标题样式
+
 - 修复5级标题和6级标题没对齐的bug
+
 - 修改行内公式颜色为蓝色（为了醒目，导出PDF时仍为黑色）
+
 - 修改超链接为蓝色样式
+
 - 优化了导出PDF的样式效果
   - 设置导出的中文字体为`思源宋体`，英文字体为`Georgia`
-  - 可以通过取消第766行的注释，设置导出字体为`宋体`+`Times New`
-- 也可以取消第51行的注释，将书写样式和导出样式调整一致
-  （个人认为思源宋体在书写时，阅读效果不是很好）、
-
-> 注意：更新时，因为新添了思源宋体，所以请将`zj`文件夹一并更新
->
-> 思源宋体压缩包为 `SiYuanSongTi.zip`
+  
+  
+  
 
 可以通过以下设置修改行内公式颜色和大小：
 
@@ -121,7 +123,26 @@ body {
 ---
 
 ### 2020年10月28日更新
+
 - 调小了2,3级标题样式的大小
 - 默认导出PDF为`宋体`+`Times New`
 
 > 导出PDF失败似乎是思源宋体的原因，因此将默认输出样式修改之后就OK了。
+
+
+
+如果导出字体过大，可以搜索如下代码，将下面第6行中的字体调小（大概在原CSS的755行）。
+
+> 在设置中把字体大小改成自动，否则打印字体大小就无法调节了
+
+```css
+@media print {
+    .typora-export * {
+        -webkit-print-color-adjust: exact;
+    }
+    html {
+        font-size: 15px!important;
+    }
+}
+```
+
