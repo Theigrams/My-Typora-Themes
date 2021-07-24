@@ -1,0 +1,860 @@
+/* 如有不懂，参看 https://theme.typora.io/doc/zh/Write-Custom-Theme/ */
+
+@import 'zj/fonts.css';
+ :root {
+    --side-bar-bg-color: #fff;
+    --control-text-color: #777;
+    /* --font-sans-serif: 'PingFangSC-Regular', 'Microsoft YaHei', , 'Source Sans Pro', sans-serif !important; */
+    --font-sans-serif: 'Source Han SerifCN', 'Microsoft YaHei', sans-serif !important;
+    --font-monospace: Courier, monospace, 'Courier New', 'Roboto Mono', 'Source Sans Pro', 'Microsoft YaHei' !important;
+    /* 主题色 */
+    --main-1: #fff3f0;
+    --main-2: #ffd4cc;
+    --main-3: #ffafa3;
+    --main-4: #ff887a;
+    --main-5: #ff5d52;
+    --main-6: #f22f27;
+    --main-7: #cc1616;
+    --main-8: #a60a0f;
+    --main-9: #80010a;
+    --main-10: #590009;
+}
+
+html {
+    font-size: 17px;
+}
+
+body {
+    /* 字体与颜色 */
+    font-family: var(--font-sans-serif);
+    color: black;
+    /* 行间距 */
+    line-height: 1.6rem;
+    /* 抗锯齿渲染，适用于高分屏 */
+    /* -webkit-font-smoothing: antialiased; */
+    /* 	裁剪溢出内容 */
+    overflow-x: hidden;
+    /* 字母间距 */
+    letter-spacing: 0;
+    margin: 0;
+}
+
+
+/* #write 为写入区域 */
+
+#write {
+    max-width: 860px;
+    padding: 20px 30px 160px;
+    margin: 0 auto;
+}
+
+
+/* 根据窗口的大小调整写作区域 */
+
+
+/* @media only screen and (min-width: 1400px) {
+    #write {
+        max-width: 1024px;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #write {
+        max-width: 1200px;
+    }
+} */
+
+
+/* 正常文字 */
+
+#write p {
+    line-height: 1.6rem;
+    word-spacing: .05rem;
+    color: black;
+}
+
+#write>ul:first-child,
+#write>ol:first-child {
+    margin-top: 30px;
+}
+
+
+/* 链接 */
+
+a {
+    padding: 0 2px;
+    /* font-weight: 500; */
+    /* color: #4183C4; */
+    color: #0366d6;
+    /* color: #4183C4; */
+    /* text-decoration: none; */
+    /* text-decoration-color: #0366d6; */
+}
+
+
+/* 加粗 */
+
+strong {
+    padding: 0.1em;
+    /* color: #dc3545; */
+    color: #E91E63;
+    font-weight: 600;
+    /* font-family: 'Microsoft YaHei'; */
+    /* font-size: 90%; */
+}
+
+
+/* 斜体强调 */
+
+em {
+    font-style: normal;
+    background-color: #EBFFEB;
+    border-radius: 2px;
+    padding: 2px 4px;
+    margin: 0 2px;
+    color: black;
+}
+
+
+/* 行内数学公式变蓝 */
+
+.md-inline-math {
+    color: blue;
+    font-size: 100%;
+}
+
+
+/* 行间数学公式 */
+
+[mdtype="math_block"] {
+    font-size: 1.1rem;
+    /* font-size: 110%; */
+    /* color: blue; */
+}
+
+
+/* .MathJax_SVG svg {
+    font-size: 110%;
+    color: blue;
+    zoom: 1
+} */
+
+
+/* 标题编号初始化 */
+
+
+/* 首先全局进行一次reset，这样即使不添加h1标题也可以使用较低级别的标题 */
+
+#write {
+    counter-reset: h2 0 h3 0 h4 0 h5 0 h6 0
+}
+
+
+/* #write {
+    counter-reset: h1
+} */
+
+h1 {
+    counter-reset: h2
+}
+
+h2 {
+    counter-reset: h3
+}
+
+h3 {
+    counter-reset: h4
+}
+
+h4 {
+    counter-reset: h5
+}
+
+h5 {
+    counter-reset: h6
+}
+
+
+/** put counter result into headings */
+
+#write h1:before {
+    counter-increment: h1;
+    /* content: counter(h1) ". " */
+}
+
+#write h2:before {
+    counter-increment: h2;
+    content: counter(h2) ". "
+}
+
+#write h3:before,
+h3.md-focus.md-heading:before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3) " "
+}
+
+#write h4:before,
+h4.md-focus.md-heading:before {
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4) " "
+}
+
+#write h5:before,
+h5.md-focus.md-heading:before {
+    counter-increment: h5;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) " "
+}
+
+#write h6:before,
+h6.md-focus.md-heading:before {
+    counter-increment: h6;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) " "
+}
+
+
+/** override the default style for focused headings */
+
+#write>h3.md-focus:before,
+#write>h4.md-focus:before,
+#write>h5.md-focus:before,
+#write>h6.md-focus:before,
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+    color: inherit;
+    border: inherit;
+    border-radius: inherit;
+    position: inherit;
+    left: initial;
+    float: none;
+    top: initial;
+    font-size: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    vertical-align: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+
+
+/* h1标题样式 */
+
+h1 {
+    text-align: center;
+    padding-bottom: .2em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    /* border-bottom: 1px solid #eee; */
+}
+
+
+/* h2标题样式 */
+
+h2 {
+    padding-bottom: .2em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 1em;
+    color: #777;
+}
+
+p,
+blockquote,
+ul,
+ol,
+dl,
+table {
+    margin: 0.8em 0;
+}
+
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+
+/* 列表环境 */
+
+#write ol>li,
+#write ul>li {
+    /* color: #db4d52; */
+    color: #f50057;
+    font-weight: bold;
+}
+
+#write ol>li>*,
+#write ul>li>* {
+    color: #333;
+    font-weight: normal;
+}
+
+#write ol>li>*:not(ol):not(ul),
+#write ul>li>*:not(ol):not(ul) {
+    padding-left: .25rem;
+}
+
+#write ul {
+    list-style-type: disc;
+}
+
+blockquote {
+    border-left: 4px solid rgb(239, 112, 96);
+    padding: 10px 15px;
+    color: #3f3f3f;
+    background-color: #fff9f9;
+}
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+
+/* tr元素定义表格行 */
+
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+
+table tr:nth-child(2n),
+thead {
+    background-color: #F6F8FA;
+}
+
+
+/* th元素定义表头 */
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+
+/* td元素定义表格单元格 */
+
+table tr td {
+    border: 1px solid #dfe2e5;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+
+/* 行号与代码之间的框线 */
+
+
+/* #write .CodeMirror-gutters {
+border-right: none;
+} */
+
+
+/* 行号 */
+
+.cm-s-inner .CodeMirror-linenumber {
+    width: 2ch !important;
+    font-size: 0.7rem;
+    /* color: rgba(128, 128, 255, 0.8); */
+    color: rgba(0, 92, 197, 0.8);
+}
+
+
+/* .CodeMirror-lines {
+padding-left: 4px;
+} */
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0, 28, 36, .3);
+    border-top: 1px solid #eef2f2;
+}
+
+
+/* 代码框 */
+
+#write .md-fences {
+    /* border: 1px solid #F4F4F4; */
+    -webkit-font-smoothing: initial;
+    margin: 0.8rem 0 !important;
+    padding: 0.3rem 0 !important;
+    line-height: 1.43rem;
+    /* background-color: #F8F8F8 !important; */
+    /* background-color: #f6f8fb !important; */
+    background-color: #f6f8fa !important;
+    border-radius: 2px;
+    /* font-family: '等距更纱黑体 SC', 'Microsoft YaHei'!important; */
+    font-family: var(--font-monospace);
+    /* '等距更纱黑体 SC'  */
+    font-size: 0.9rem;
+    word-wrap: normal;
+}
+
+#write .CodeMirror-wrap .CodeMirror-code pre {
+    padding-left: 12px;
+}
+
+
+/* 代码框中光标颜色 */
+
+#write .CodeMirror-cursors .CodeMirror-cursor {
+    border-left: 2px solid var(--main-4);
+}
+
+
+/* 行内代码 */
+
+#write code,
+tt {
+    /* padding: 1px 2px; */
+    /* border: 1px solid #e7eaed; */
+    padding: 2px 4px 0px 4px;
+    border-radius: 2px;
+    font-family: var(--font-monospace);
+    /* font-family: 'Source Code Pro', 'Microsoft YaHei'!important; */
+    font-size: 0.9rem;
+    color: #FF0000;
+    background-color: #FAEAEB;
+}
+
+tt {
+    margin: 0 2px;
+}
+
+#write .md-footnote {
+    background-color: #f8f8f8;
+    color: #e96900;
+}
+
+
+/* 任务列表小方框 */
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+}
+
+#write del {
+    padding: 1px 2px;
+}
+
+#write pre.md-meta-block {
+    padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+    bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
+}
+
+#write>h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+#write>h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
+}
+
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/**************************************
+* Header Counters in TOC
+**************************************/
+
+
+/* No link underlines in TOC */
+
+.md-toc-inner {
+    text-decoration: none;
+}
+
+.md-toc-content {
+    /* counter-reset: h1toc */
+    counter-reset: h2toc h3toc h4toc;
+    /*修复缺失上级标题时无法递增*/
+}
+
+.md-toc-h1 {
+    margin-left: 0;
+    font-size: 1.5rem;
+    display: none;
+    counter-reset: h2toc
+}
+
+.md-toc-h2 {
+    font-size: 1.1rem;
+    margin-left: 2rem;
+    counter-reset: h3toc
+}
+
+.md-toc-h3 {
+    margin-left: 3rem;
+    font-size: .9rem;
+    counter-reset: h4toc
+}
+
+.md-toc-h4 {
+    margin-left: 4rem;
+    font-size: .85rem;
+    counter-reset: h5toc
+}
+
+.md-toc-h5 {
+    margin-left: 5rem;
+    font-size: .8rem;
+    counter-reset: h6toc
+}
+
+.md-toc-h6 {
+    margin-left: 6rem;
+    font-size: .75rem;
+}
+
+.md-toc-h1:before {
+    color: black;
+    counter-increment: h1toc;
+}
+
+.md-toc-h1 .md-toc-inner {
+    margin-left: 0;
+}
+
+.md-toc-h2:before {
+    color: black;
+    counter-increment: h2toc;
+    content: counter(h2toc) ". "
+}
+
+.md-toc-h2 .md-toc-inner {
+    margin-left: 0;
+}
+
+.md-toc-h3:before {
+    color: black;
+    counter-increment: h3toc;
+    content: counter(h2toc) ". " counter(h3toc) " "
+}
+
+.md-toc-h3 .md-toc-inner {
+    margin-left: 0;
+}
+
+.md-toc-h4:before {
+    color: black;
+    counter-increment: h4toc;
+    content: counter(h2toc) ". " counter(h3toc) ". " counter(h4toc) " "
+}
+
+.md-toc-h4 .md-toc-inner {
+    margin-left: 0;
+}
+
+.md-toc-h5:before {
+    color: black;
+    counter-increment: h5toc;
+    content: counter(h2toc) ". " counter(h3toc) ". " counter(h4toc) ". " counter(h5toc) " "
+}
+
+.md-toc-h5 .md-toc-inner {
+    margin-left: 0;
+}
+
+.md-toc-h6:before {
+    color: black;
+    counter-increment: h6toc;
+    content: counter(h2toc) ". " counter(h3toc) ". " counter(h4toc) ". " counter(h5toc) ". " counter(h6toc) " "
+}
+
+.md-toc-h6 .md-toc-inner {
+    margin-left: 0;
+}
+
+
+/* 侧栏自动编号 */
+
+.sidebar-content {
+    counter-reset: h2 0 h3 0 h4 0 h5 0 h6 0
+}
+
+
+/* .sidebar-content {
+    counter-reset: h1
+} */
+
+.outline-h1 {
+    counter-reset: h2
+}
+
+.outline-h2 {
+    counter-reset: h3
+}
+
+.outline-h3 {
+    counter-reset: h4
+}
+
+.outline-h4 {
+    counter-reset: h5
+}
+
+.outline-h5 {
+    counter-reset: h6
+}
+
+.outline-h1>.outline-item>.outline-label:before {
+    counter-increment: h1;
+    /* content: counter(h1) ". " */
+}
+
+.outline-h2>.outline-item>.outline-label:before {
+    counter-increment: h2;
+    content: counter(h2) ". "
+}
+
+.outline-h3>.outline-item>.outline-label:before {
+    counter-increment: h3;
+    content: counter(h2) "." counter(h3) " "
+}
+
+.outline-h4>.outline-item>.outline-label:before {
+    counter-increment: h4;
+    content: counter(h2) "." counter(h3) "." counter(h4) " "
+}
+
+.outline-h5>.outline-item>.outline-label:before {
+    counter-increment: h5;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) " "
+}
+
+.outline-h6>.outline-item>.outline-label:before {
+    counter-increment: h6;
+    content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) " "
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+
+/** focus mode */
+
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state {
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+/* 打印成PDF */
+
+@media print {
+    .typora-export * {
+        -webkit-print-color-adjust: exact;
+    }
+    html {
+        font-size: 15px!important;
+    }
+    body {
+        /* font-size: 16px!important; */
+        /* font-family: 'Source Han SerifCN', "Times New Roman", Times, 'SimSun', serif!important; */
+        font-family: "Times New Roman", Times, 'SimSun', serif!important;
+        color: #000000!important;
+    }
+    p {
+        color: #000000!important;
+    }
+    a {
+        color: blue!important;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}

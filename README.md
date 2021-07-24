@@ -1,5 +1,22 @@
 # My-Typora-Themes
 
+
+
+---
+
+> [Update on 2021-07-24]
+>
+> 新增主题：`G2`
+
+`G2` 就是 `Github2` 的意思，原主题看久了有点审美疲劳，所以在默认主题 github 的基础上捣鼓了一款新的主题，力求简洁，并且加上了标题自动编号（关闭代码行号效果最佳），字体文件夹则是沿用原来的 `zj` 文件夹。
+
+![QQ图片20210724140414](http://pic.theigrams.cn/20210724140505.jpg?imagslim)
+
+
+___
+
+
+
 > 如果GitHub图片加载不出来，可以去知乎看 https://zhuanlan.zhihu.com/p/133863913.
 
 这是我写的一个Typora主题，基本上是由 `pie` 和 `ursine-polar` 修改而来，使用方法请参看Typora的帮助手册。
@@ -21,7 +38,7 @@ Typora可谓是我最喜欢的Markdown编辑器了，可惜其自带的样式实
 
 首先因为我感觉字体有点小，就把正文换成了17号字体。
 
-```text
+```css
 html {
     font-size: 17px;
 }
@@ -29,7 +46,7 @@ html {
 
 然后修改了一下字体（如果是Mac用户的话，可以把下面第二行注释掉，因为自带的苹方字体就很好看）。
 
-```text
+```css
 body {
     font-family: "Vollkorn", Palatino, Times;
     /* font-family: 'Source Han SerifCN', Georgia, Times, 'SimSun', serif!important; */
@@ -87,6 +104,7 @@ body {
 
 ![img](https://pic2.zhimg.com/v2-15e30641f95416a64934a53d41293df9_r.jpg)
 
+## 更新记录
 
 ### 2020年10月27日更新
 
@@ -104,7 +122,6 @@ body {
 
 - 优化了导出PDF的样式效果
   - 设置导出的中文字体为`思源宋体`，英文字体为`Georgia`
-  
   
   
 
