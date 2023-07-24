@@ -485,7 +485,7 @@ table tr td:last-child {
 }
 
 .cm-s-inner .CodeMirror-linenumber {
-    width: 2ch !important;
+    width: 3ch !important;
     color: rgba(128, 128, 255, 0.8);
 }
 
